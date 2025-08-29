@@ -1,0 +1,43 @@
+import type { Team } from './types';
+
+interface TeamListProps {
+  teamNames: Team[];
+  search: string;
+  getRoster: (abbre: string) => void;
+  deleteTeam: (name: string) => void;
+
+
+}
+
+
+export default function TeamList({ teamNames, search, getRoster, deleteTeam }: TeamListProps) {
+
+  return (
+    <div >
+      <ul className='team-list'>
+        {teamNames
+          .filter((team) =>
+
+            team.name.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((team) => (
+            <li key={team.name}>
+              <img
+                src={team.logo}
+                alt={team.name}
+                style={{ width: 25, height: 25 }}
+              />
+              <button onClick={() => getRoster(team.abbre)}>
+                {team.name} {team.abbre}</button>
+              <button onClick={() => deleteTeam(team.name)}> Delete </button>
+
+            </li>
+          ))}
+      </ul>
+    </div>
+
+
+
+  )
+
+}

@@ -1,0 +1,161 @@
+.player-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  width: 500px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.team-selection {
+  background-color: #FF0000;
+  flex: 1;
+  border: 10px solid #000000;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.player-selector {
+  background-color: #007BFF;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  border: 10px solid #000000;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+
+.footer {
+
+  background-color: black;
+  color: white;
+  height: 50px
+}
+
+.top {
+  background-color: black;
+  height: 100px;
+  color: white;
+}
+
+.nba-logo {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+}
+
+
+.side-filter {
+  flex: 3;
+}
+
+.player-filter-select {
+  flex: 7;
+  overflow-y: scroll;
+
+}
+
+
+
+.team-roster-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.team-roster {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.team-roster th,
+.team-roster td {
+  padding: 8px;
+  text-align: left;
+}
+
+
+.team-roster th {
+  position: sticky;
+  top: 0;
+  background-color: #007BFF;
+}
+
+.team-list {
+  max-height: 15vh;
+  overflow-y: auto;
+  list-style-type: none;
+}
+
+.player-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.team-select {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+
+.player-profile-empty {
+  flex: 1;
+  min-width: 75px;
+  text-align: center;
+  border: dotted black 7px;
+
+}
+
+.player-profile-empty img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+
+.player-profile {
+  flex: 1;
+  text-align: center;
+}
+
+.player-profile button {
+  width: 75px;
+
+}
+
+.player-profile img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+}
+
+.player-details {
+  list-style-type: none;
+  padding: 0;
+
+}
+
+.team-selection h3 {
+  padding-right: 200px;
+}
