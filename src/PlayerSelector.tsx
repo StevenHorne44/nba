@@ -1,5 +1,5 @@
 import './App.css'
-import SearchBar from './searchBar'
+import SearchBar from './SearchBar'
 import { useState, useEffect } from 'react'
 import { callEspn } from './callEspn'
 import type { Team, Player } from './types'
