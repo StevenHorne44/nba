@@ -13,31 +13,28 @@ interface TeamListProps {
 export default function TeamList({ teamNames, search, getRoster, deleteTeam }: TeamListProps) {
 
   return (
-    <div >
-      <ul className='team-list'>
-        {teamNames
-          .filter((team) =>
 
-            team.name.toLowerCase().includes(search.toLowerCase())
-          )
-          .map((team) => (
-            <li key={team.name}>
-              <img
-                src={team.logo}
-                alt={team.name}
-                style={{ width: 25, height: 25 }}
-              />
-              <button onClick={() => getRoster(team.abbre)}>
-                {team.name} {team.abbre}</button>
-              <button onClick={() => deleteTeam(team.name)}> Delete </button>
+    <ul className='team-list'>
+      {teamNames
+        .filter((team) =>
 
-            </li>
-          ))}
-      </ul>
-    </div>
+          team.name.toLowerCase().includes(search.toLowerCase())
+        )
+        .map((team) => (
+          <li key={team.name}>
+            <img
+              src={team.logo}
+              alt={team.name}
+              style={{ width: 25, height: 25 }}
+            />
+            <button onClick={() => getRoster(team.abbre)}>
+              {team.name} {team.abbre}</button>
+            <button onClick={() => deleteTeam(team.name)}><span className="material-icons delete-button">delete</span> </button>
+            <div ></div>
 
-
-
+          </li>
+        ))}
+    </ul>
   )
 
 }

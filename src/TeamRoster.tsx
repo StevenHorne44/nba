@@ -49,7 +49,7 @@ export default function TeamRoster({ playerDetails, onAddPlayer }: TeamRosterPro
               <td>{player.jersey || "-"}</td>
               <td>{player.position || "-"}</td>
               <td>
-                <button onClick={() => onAddPlayer?.(player)} disabled={player.isPlayerSelected}>{player.isPlayerSelected ? "✓" : "+"}</button>
+                <button onClick={() => onAddPlayer?.(player)} disabled={player.isPlayerSelected}>{player.isPlayerSelected ? <span className="material-icons delete-button">done</span> : <span className="material-icons delete-button">add</span>}</button>
               </td>
             </tr>
           ))}
