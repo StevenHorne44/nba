@@ -122,6 +122,7 @@ h4 {
 
     .team-button {
         font-size: 1.5em;
+        width:20vw
       }
 
     .player-selector-team-list {
@@ -174,6 +175,11 @@ h4 {
   border-radius: 12px;
   width: 500px;
 } */
+
+.search-bar{
+  width: 100%;
+  font-size: 1.5em;
+}
 
 .playerCard {
   background: white;
