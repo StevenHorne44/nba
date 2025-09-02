@@ -1,3 +1,5 @@
+import './App.css'
+
 interface SearchBarProps {
     search: string;
     setSearch: (value: string) => void;
@@ -9,6 +11,7 @@ export default function SearchBar({ search, setSearch }: SearchBarProps) {
         <div>
             <input
                 value={search}
+                placeholder="Search for team..."
                 onChange={e => setSearch(e.target.value)}
             />
 

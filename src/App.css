@@ -112,14 +112,17 @@ h4 {
       flex-direction: column;
       overflow-y: auto;
       list-style-type: none;
-      padding-left: 0px;
+      padding: 0px;
+      gap:0.5em;
 
       .delete-button {
         font-size: 20px;
       }
-
-
     }
+
+    .team-button {
+        font-size: 1.5em;
+      }
 
     .player-selector-team-list {
       display: flex;
@@ -143,7 +146,7 @@ h4 {
   .team-roster th,
   .team-roster td {
     padding: 8px;
-    text-align: left;
+    text-align: center;
   }
 
   .team-roster th {

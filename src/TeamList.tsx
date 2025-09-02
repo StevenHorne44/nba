@@ -24,7 +24,7 @@ export default function TeamList({ teamNames, search, getRoster }: TeamListProps
               alt={team.name}
               style={{ width: 25, height: 25 }}
             />
-            <button onClick={() => getRoster(team.abbre)}>
+            <button className="team-button" onClick={() => getRoster(team.abbre)}>
               {team.name} {team.abbre}</button>
             <div ></div>
 
