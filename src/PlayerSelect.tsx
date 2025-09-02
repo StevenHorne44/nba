@@ -2,6 +2,7 @@ import "./App.css";
 import type { Player } from "./types";
 import blankPerson from "./blank-person.png";
 
+
 interface PlayerSelectProps {
   player: Player | null;
   onDelete?: () => void;
@@ -57,7 +58,7 @@ export function PlayerSelect({ player, onDelete }: PlayerSelectProps) {
       <div className="playerDetails">
         <div className="detailRow">
           <span className="detailLabel">Position:</span>
-          <span className="detailValue">{player.position.displayName} ({player.position.abbreviation})</span>
+          <span className="detailValue">{player.position} </span>
         </div>
         <div className="detailRow">
           <span className="detailLabel">Height:</span>
@@ -65,7 +66,7 @@ export function PlayerSelect({ player, onDelete }: PlayerSelectProps) {
         </div>
         <div className="detailRow">
           <span className="detailLabel">Weight:</span>
-          <span className="detailValue">{player.weight} lbs</span>
+          <span className="detailValue">{player.weight}</span>
         </div>
       </div>
     </div>

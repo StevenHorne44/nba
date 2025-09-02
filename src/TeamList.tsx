@@ -4,13 +4,10 @@ interface TeamListProps {
   teamNames: Team[];
   search: string;
   getRoster: (abbre: string) => void;
-  deleteTeam: (name: string) => void;
-
-
 }
 
 
-export default function TeamList({ teamNames, search, getRoster, deleteTeam }: TeamListProps) {
+export default function TeamList({ teamNames, search, getRoster }: TeamListProps) {
 
   return (
 
@@ -29,7 +26,6 @@ export default function TeamList({ teamNames, search, getRoster, deleteTeam }: T
             />
             <button onClick={() => getRoster(team.abbre)}>
               {team.name} {team.abbre}</button>
-            <button onClick={() => deleteTeam(team.name)}><span className="material-icons delete-button">delete</span> </button>
             <div ></div>
 
           </li>

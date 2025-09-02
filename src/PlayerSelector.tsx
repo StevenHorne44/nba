@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { callEspn } from "./callEspn";
 import type { Team, Player } from "./types";
 import TeamList from "./TeamList";
-import UndoDelete from "./UndoDelete";
 import TeamRoster from "./TeamRoster";
 import { getRoster } from "./getRoster";
 
@@ -15,9 +14,7 @@ interface PlayerSelectorProps {
 
 export default function PlayerSelector({ selectedPlayers, setSelectedPlayers }: PlayerSelectorProps) {
     const [search, setSearch] = useState("");
-    const [canedit, setCanedit] = useState(false);
     const [teamNames, setTeamNames] = useState<Team[]>([]);
-    const [deletedTeams, setDeletedTeams] = useState<Team[]>([]);
     const [playerDetails, setPlayerDetails] = useState<Player[]>([]);
     const [selectedTeamAbbre, setSelectedTeamAbbre] = useState("");
 
@@ -37,21 +34,6 @@ export default function PlayerSelector({ selectedPlayers, setSelectedPlayers }: 
         fetchRoster();
     }, [selectedTeamAbbre]);
 
-    function deleteTeam(name: string) {
-        const teamToDelete = teamNames.find((t) => t.name === name);
-        if (!teamToDelete) return;
-        setTeamNames(teamNames.filter((t) => t.name !== name));
-        setDeletedTeams([...deletedTeams, teamToDelete]);
-    }
-
-    function undoDelete() {
-        if (deletedTeams.length === 0) return;
-        const lastDeleted = deletedTeams[deletedTeams.length - 1];
-        setDeletedTeams(deletedTeams.slice(0, -1));
-        const newTeamNames = [...teamNames, lastDeleted].sort((a, b) => a.name.localeCompare(b.name));
-        setTeamNames(newTeamNames);
-    }
-
     function handleAddPlayer(player: Player) {
         const emptyIndex = selectedPlayers.findIndex((p) => p === null);
         if (emptyIndex === -1) return;
@@ -64,14 +46,12 @@ export default function PlayerSelector({ selectedPlayers, setSelectedPlayers }: 
         <div className="player-selector">
             <h3 className="player-selector-header">Player Selector </h3>
             <div className="player-selector-filter">
-                <SearchBar search={search} setSearch={setSearch} canedit={canedit} setCanedit={setCanedit} />
-                <UndoDelete undoDelete={undoDelete} disabled={deletedTeams.length === 0} />
+                <SearchBar search={search} setSearch={setSearch} />
                 <h4>NBA Teams</h4>
-                <TeamList                    
+                <TeamList
                     teamNames={teamNames}
                     search={search}
                     getRoster={(abbre) => setSelectedTeamAbbre(abbre)}
-                    deleteTeam={deleteTeam}
                 />
 
             </div>
