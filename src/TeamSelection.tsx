@@ -12,6 +12,7 @@ export default function TeamSelection({ selectedPlayers, removePlayer }: TeamSel
     <>    
       <div className="team-selection">
         <h3> Team Selection</h3>  
+        <button disabled={selectedPlayers.some(player => player === null)}>Add Team</button>
         <div className="team-select">
           {selectedPlayers.map((player, idx) => (
             <PlayerSelect key={idx} player={player} onDelete={() => removePlayer(idx)} />
