@@ -1,6 +1,6 @@
 import type { Player } from "./types";
 import './App.css'
-import blankPerson from './blank-person.png'
+import blankPerson from './images/blank-person.png'
 
 interface TeamRosterProps {
     playerDetails: Player[];

@@ -1,5 +1,5 @@
 import './App.css'
-import nbaLogo from './nba.png'
+import nbaLogo from './images/nba.png'
 
 export default function Title({}) {
 

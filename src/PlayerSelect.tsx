@@ -1,6 +1,6 @@
 import "./App.css";
 import type { Player } from "./types";
-import blankPerson from "./blank-person.png";
+import blankPerson from "./images/blank-person.png";
 
 
 interface PlayerSelectProps {
