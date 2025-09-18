@@ -11,27 +11,27 @@ interface PlayerSelectProps {
 export function PlayerSelect({ player, onDelete }: PlayerSelectProps) {
   if (!player) {
     return (
-<div className="playerCard">      
-      <div className="playerName">Pick Team Member</div>
-      
-      <div className="playerHeader">
-      <img className="playerHeadshot" src={blankPerson} />
-        <div className="playerBasicInfo">
-          <h4>#</h4>
+      <div className="playerCard">
+        <div className="playerName">Pick Team Member</div>
+
+        <div className="playerHeader">
+          <img className="playerHeadshot" src={blankPerson} />
+          <div className="playerBasicInfo">
+            <h4>#</h4>
+          </div>
+        </div>
+        <div className="playerDetails">
+          <div className="detailRow">
+            <span className="detailLabel">Position:</span>
+          </div>
+          <div className="detailRow">
+            <span className="detailLabel">Height:</span>
+          </div>
+          <div className="detailRow">
+            <span className="detailLabel">Weight:</span>
+          </div>
         </div>
       </div>
-      <div className="playerDetails">
-        <div className="detailRow">
-          <span className="detailLabel">Position:</span>          
-        </div>
-        <div className="detailRow">
-          <span className="detailLabel">Height:</span>          
-        </div>
-        <div className="detailRow">
-          <span className="detailLabel">Weight:</span>          
-        </div>
-      </div>
-    </div>
     );
   }
 
@@ -39,18 +39,17 @@ export function PlayerSelect({ player, onDelete }: PlayerSelectProps) {
     <div className="playerCard">
       <button onClick={onDelete} className="deleteButton"><span className="material-icons delete-button">delete</span></button>
       <div className="playerName">{player.fullname}</div>
-      
+
       <div className="playerHeader">
-        {player.faceimg && (
-          <img
-            src={player.faceimg}
-            alt={`${player.fullname} headshot`}
-            className="playerHeadshot"
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-              (e.target as HTMLImageElement).style.display = 'none';
-            }}
-          />
-        )}
+        <img
+          src={player.faceimg || blankPerson}
+          alt={`${player.fullname} headshot`}
+          className="playerHeadshot"
+          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
+
         <div className="playerBasicInfo">
           <h4>#{player.jersey}</h4>
         </div>

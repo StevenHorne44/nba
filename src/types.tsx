@@ -13,3 +13,9 @@ export interface Player {
   position: string
   isPlayerSelected: boolean
 }
+
+export interface MadeTeam {
+  Id?: number ,
+  TeamName: string;
+  Players: Player[];
+}

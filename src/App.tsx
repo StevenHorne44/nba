@@ -27,7 +27,7 @@ export default function App() {
     <>
       <div className='container' >
         <Title />
-        <TeamSelection selectedPlayers={selectedPlayers} removePlayer={removePlayer}/> 
+        <TeamSelection selectedPlayers={selectedPlayers} setSelectedPlayers={setSelectedPlayers} removePlayer={removePlayer}/> 
         <PlayerSelector selectedPlayers={selectedPlayers} setSelectedPlayers={setSelectedPlayers}/>
         <Footer/>
 
