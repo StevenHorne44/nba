@@ -1,7 +1,7 @@
 import "./App.css";
 import { PlayerSelect } from "./PlayerSelect";
 import type { Player, MadeTeam } from "./types";
-import { getAllTeams, createTeam, updateTeam, deleteTeam } from "./getallteams";
+import { getAllTeams, createTeam, updateTeam, deleteTeam } from "./getAllTeams";
 import { useState, useEffect } from "react";
 
 
@@ -32,10 +32,11 @@ export default function TeamSelection({selectedPlayers, setSelectedPlayers, remo
     try {
       setloading(true);
       const data = await getAllTeams();
-      setTeams(data);
+      setTeams(data || []);
+      setError(null)
     } catch (err) {
-      console.log(err)
-      setError("Failed to load teams");
+      console.log(err) 
+      setTeams([])
     } finally {
       setloading(false)
     }
@@ -112,7 +113,7 @@ export default function TeamSelection({selectedPlayers, setSelectedPlayers, remo
   };
 
   if (loading) return <p>Loading teams...</p>;
-  if (error) return <p>{error}</p>;
+  //if (error) return <p>{error}</p>;
 
 
 

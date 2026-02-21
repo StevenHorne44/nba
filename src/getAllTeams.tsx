@@ -1,8 +1,5 @@
 import type { MadeTeam } from "./types";
 
-
-
-
 //Fetch TEAMS
 export async function getAllTeams(): Promise<MadeTeam[]> {
     const res = await fetch("http://127.0.0.1:5000/api/teams/")
@@ -10,8 +7,6 @@ export async function getAllTeams(): Promise<MadeTeam[]> {
     return res.json();
 }
 
-
-// Create team
 export async function createTeam(team: MadeTeam): Promise<MadeTeam> {
     const res = await fetch("http://127.0.0.1:5000/api/teams/", {
         method: "POST",
@@ -22,8 +17,6 @@ export async function createTeam(team: MadeTeam): Promise<MadeTeam> {
     return res.json();
 }
 
-
-// Update an existing team
 export async function updateTeam(id: number, team: MadeTeam): Promise<MadeTeam> {
     const res = await fetch(`http://127.0.0.1:5000/api/teams/${id}`, {
         method: "PATCH",
@@ -34,7 +27,6 @@ export async function updateTeam(id: number, team: MadeTeam): Promise<MadeTeam> 
     return res.json();
 }
 
-// Delete TEAM
 export async function deleteTeam(id: number): Promise<void> {
     const res = await fetch(`http://127.0.0.1:5000/api/teams/${id}`, {
         method: "DELETE",

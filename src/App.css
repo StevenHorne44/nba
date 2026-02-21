@@ -12,12 +12,14 @@ h4 {
 
   .top {
     background-color: black;
-    height: 100px;
+    height: 10%;
     color: white;
 
+
+
     .nba-logo {
-      height: 100px;
-      width: 100px;
+      height: 10%;
+      width: 10%;
       position: absolute;
     }
   }
@@ -29,7 +31,8 @@ h4 {
   .footer {
     background-color: black;
     color: white;
-    height: 50px;
+    height: 5%;
+    position: sticky;
   }
 }
 
@@ -42,6 +45,7 @@ h4 {
   margin: 1rem;
   margin-bottom: 0.5rem;
   padding: 1rem;
+  
 
   .team-select {
     display: flex;
@@ -95,6 +99,7 @@ h4 {
   grid-template-areas:
     "header header"
     "selectorLeft selectorRight";
+  position: sticky;
 
   .player-selector-header {
     grid-area: header;
@@ -122,7 +127,8 @@ h4 {
 
     .team-button {
         font-size: 1.5em;
-        width:20vw
+        width:20vw;
+        background-color: white;
       }
 
     .player-selector-team-list {
