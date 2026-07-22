@@ -27,12 +27,13 @@ export default function PlayerSelector({ selectedPlayers, setSelectedPlayers }: 
     }, []);
 
     useEffect(() => {
-        async function fetchRoster() {
-            const roster = await getRoster(selectedTeamAbbre);
-            setPlayerDetails(roster);
-        }
-        fetchRoster();
-    }, [selectedTeamAbbre]);
+    if (!selectedTeamAbbre) return;   // skip on initial empty state
+    async function fetchRoster() {
+        const roster = await getRoster(selectedTeamAbbre);
+        setPlayerDetails(roster);
+    }
+    fetchRoster();
+}, [selectedTeamAbbre]);
 
     function handleAddPlayer(player: Player) {
         const emptyIndex = selectedPlayers.findIndex((p) => p === null);

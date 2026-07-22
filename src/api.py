@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api, reqparse, fields, marshal_with, abort
 from flask_cors import CORS
 import json
+import requests
 
 app = Flask(__name__)
 CORS(app)
@@ -76,12 +77,24 @@ class Team(Resource):
         db.session.delete(team)
         db.session.commit()
         return {"message": "Team deleted successfully"}
-
-
+    
+class EspnTeams(Resource):
+    def get(self):
+        try:
+            headers = {"User-Agent": "Mozilla/5.0"}
+            response = requests.get(
+                'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams',
+                headers=headers,
+                timeout=10
+            )
+            response.raise_for_status()  # raises if ESPN returned 4xx/5xx
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e)}, 500
     
 api.add_resource(Teams, '/api/teams/')
 api.add_resource(Team, '/api/teams/<int:id>')
-
+api.add_resource(EspnTeams, '/api/espn-teams/')
 
 
 @app.route('/')
