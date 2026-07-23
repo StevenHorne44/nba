@@ -63,10 +63,17 @@ export function PlayerSelect({ player, onDelete }: PlayerSelectProps) {
         <div className="detailRow">
           <span className="detailLabel">Height:</span>
           <span className="detailValue">{player.height}</span>
-        </div>
-        <div className="detailRow">
           <span className="detailLabel">Weight:</span>
           <span className="detailValue">{player.weight}</span>
+        </div>
+        
+        <div className="detailRow">
+          <span className="detailLabel">PPG:</span>
+          <span className="detailValue">{player.ppg}</span>
+          <span className="detailLabel">APG:</span>
+          <span className="detailValue">{player.apg}</span>
+          <span className="detailLabel">RPG:</span>
+          <span className="detailValue">{player.rpg}</span>
         </div>
       </div>
     </div>
