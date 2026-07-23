@@ -3,7 +3,7 @@ import { PlayerSelect } from "./PlayerSelect";
 import type { Player, MadeTeam } from "./types";
 import { getAllTeams, createTeam, updateTeam, deleteTeam } from "./getAllTeams";
 import { useState, useEffect } from "react";
-
+import TeamTotals from "./TeamTotals";
 
 interface TeamSelectionProps {
   selectedPlayers: (Player | null)[];
@@ -158,6 +158,7 @@ export default function TeamSelection({selectedPlayers, setSelectedPlayers, remo
 
 
         <div>
+          <TeamTotals selectedPlayers={selectedPlayers} />
           {newTeam ? (
             <div>
               <button onClick={handleCancelNewTeam}>CANCEL</button>
