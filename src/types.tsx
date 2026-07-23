@@ -5,6 +5,7 @@ export interface Team {
 }
 
 export interface Player {
+  id: string
   fullname: string
   faceimg: string
   height: string
@@ -12,6 +13,9 @@ export interface Player {
   jersey: string
   position: string
   isPlayerSelected: boolean
+  ppg: number
+  rpg: number
+  apg: number
 }
 
 export interface MadeTeam {

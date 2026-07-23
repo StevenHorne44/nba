@@ -38,8 +38,9 @@ export function PlayerSelect({ player, onDelete }: PlayerSelectProps) {
   return (
     <div className="playerCard">
       <button onClick={onDelete} className="deleteButton"><span className="material-icons delete-button">delete</span></button>
-      <div className="playerName">{player.fullname}</div>
-
+      <div className="playerName">
+        {player.fullname}
+      </div>
       <div className="playerHeader">
         <img
           src={player.faceimg || blankPerson}

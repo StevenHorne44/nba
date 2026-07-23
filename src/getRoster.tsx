@@ -10,6 +10,7 @@ export async function getRoster(abbre: string) {
       const data = await response.json();
       // Extract Player details 
       const players : Player[] = data.athletes?.map((athlete: any) => ({
+        id: athlete.id,
         fullname: athlete.displayName,
         faceimg: athlete.headshot?.href || "", 
         height: athlete.displayHeight || "",

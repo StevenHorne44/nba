@@ -6,6 +6,7 @@ import type { Team, Player } from "./types";
 import TeamList from "./TeamList";
 import TeamRoster from "./TeamRoster";
 import { getRoster } from "./getRoster";
+import { getPlayerStats } from "./getPlayerStats";
 
 interface PlayerSelectorProps {
     selectedPlayers: (Player | null)[];
@@ -27,10 +28,16 @@ export default function PlayerSelector({ selectedPlayers, setSelectedPlayers }: 
     }, []);
 
     useEffect(() => {
-    if (!selectedTeamAbbre) return;   // skip on initial empty state
+    if (!selectedTeamAbbre) return;
     async function fetchRoster() {
         const roster = await getRoster(selectedTeamAbbre);
-        setPlayerDetails(roster);
+        const enriched = await Promise.all(
+            roster.map(async (p) => {
+                const stats = await getPlayerStats(p.id);
+                return { ...p, ...stats };
+            })
+        );
+        setPlayerDetails(enriched);
     }
     fetchRoster();
 }, [selectedTeamAbbre]);

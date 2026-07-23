@@ -21,6 +21,9 @@ export default function TeamRoster({ playerDetails, onAddPlayer }: TeamRosterPro
             <th>Weight</th>
             <th>Jersey</th>
             <th>Position</th>
+            <th> PPG</th>
+            <th> APG</th>
+            <th> RPG</th>
             <th>Add</th>
           </tr>
         </thead>
@@ -48,6 +51,9 @@ export default function TeamRoster({ playerDetails, onAddPlayer }: TeamRosterPro
               <td>{player.weight || "-"}</td>
               <td>{player.jersey || "-"}</td>
               <td>{player.position || "-"}</td>
+              <td>{player.ppg || "-"}</td>
+              <td>{player.apg || "-"}</td>
+              <td>{player.rpg || "-"}</td>
               <td>
                 <button onClick={() => onAddPlayer?.(player)} disabled={player.isPlayerSelected}>{player.isPlayerSelected ? <span className="material-icons delete-button">done</span> : <span className="material-icons delete-button">add</span>}</button>
               </td>

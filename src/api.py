@@ -87,7 +87,18 @@ class EspnTeams(Resource):
                 headers=headers,
                 timeout=10
             )
-            response.raise_for_status()  # raises if ESPN returned 4xx/5xx
+            response.raise_for_status()  
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e)}, 500
+        
+class EspnPlayerStats(Resource):
+    def get(self, athlete_id):
+        try:
+            headers = {"User-Agent": "Mozilla/5.0"}
+            url = f'https://site.api.espn.com/apis/common/v3/sports/basketball/nba/athletes/{athlete_id}/stats'
+            response = requests.get(url, headers=headers, timeout=10)
+            response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
             return {"error": str(e)}, 500
@@ -95,6 +106,7 @@ class EspnTeams(Resource):
 api.add_resource(Teams, '/api/teams/')
 api.add_resource(Team, '/api/teams/<int:id>')
 api.add_resource(EspnTeams, '/api/espn-teams/')
+api.add_resource(EspnPlayerStats, '/api/player-stats/<string:athlete_id>')
 
 
 @app.route('/')
